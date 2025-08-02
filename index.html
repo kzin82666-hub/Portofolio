@@ -42,7 +42,7 @@
     </div>
   </main>
 
-  <!-- Seção Sobre (com a nova seção de habilidades) -->
+  <!-- Seção Sobre com Habilidades Interativas -->
   <section id="sobre" class="secao sobre">
     <div class="container">
       <h2 class="secao-titulo">Sobre Mim</h2>
@@ -51,67 +51,66 @@
           <p>Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e responsivas. Com habilidades em HTML, CSS, JavaScript e frameworks modernos, busco sempre entregar produtos de alta qualidade.</p>
           <p>Minha abordagem combina design criativo com código limpo e eficiente, garantindo a melhor experiência do usuário.</p>
           
-          <!-- Nova seção de habilidades com botões redondos -->
+          <!-- Seção de Habilidades Interativa -->
           <div class="habilidades-container">
             <div class="habilidades-botoes">
               <button class="habilidade-botao active" data-skill="html">
                 <i class="fab fa-html5"></i>
-                <span>HTML5</span>
               </button>
               <button class="habilidade-botao" data-skill="css">
                 <i class="fab fa-css3-alt"></i>
-                <span>CSS3</span>
               </button>
               <button class="habilidade-botao" data-skill="uiux">
                 <i class="fas fa-paint-brush"></i>
-                <span>UI/UX</span>
               </button>
               <button class="habilidade-botao" data-skill="react">
                 <i class="fab fa-react"></i>
-                <span>React</span>
               </button>
             </div>
             
-            <!-- Caixa redonda com informações -->
             <div class="habilidade-caixa">
               <div class="habilidade-item active" data-skill="html">
-                <div class="habilidade-info">
+                <div class="habilidade-header">
+                  <span class="habilidade-nome">HTML5</span>
                   <span class="habilidade-nivel">90%</span>
-                  <div class="habilidade-barra">
-                    <div class="habilidade-progresso" style="width: 90%"></div>
-                  </div>
                 </div>
-                <p class="habilidade-descricao">Linguagem de marcação para estruturação de conteúdo web</p>
+                <div class="habilidade-barra-container">
+                  <div class="habilidade-barra" style="--progresso: 90%"></div>
+                </div>
+                <p class="habilidade-descricao">Estruturação semântica de conteúdo web</p>
               </div>
               
               <div class="habilidade-item" data-skill="css">
-                <div class="habilidade-info">
+                <div class="habilidade-header">
+                  <span class="habilidade-nome">CSS3</span>
                   <span class="habilidade-nivel">85%</span>
-                  <div class="habilidade-barra">
-                    <div class="habilidade-progresso" style="width: 85%"></div>
-                  </div>
                 </div>
-                <p class="habilidade-descricao">Linguagem de estilo para design e layout web</p>
+                <div class="habilidade-barra-container">
+                  <div class="habilidade-barra" style="--progresso: 85%"></div>
+                </div>
+                <p class="habilidade-descricao">Estilização e layout responsivo</p>
               </div>
               
               <div class="habilidade-item" data-skill="uiux">
-                <div class="habilidade-info">
+                <div class="habilidade-header">
+                  <span class="habilidade-nome">UI/UX</span>
                   <span class="habilidade-nivel">80%</span>
-                  <div class="habilidade-barra">
-                    <div class="habilidade-progresso" style="width: 80%"></div>
-                  </div>
                 </div>
-                <p class="habilidade-descricao">Design de interface e experiência do usuário</p>
+                <div class="habilidade-barra-container">
+                  <div class="habilidade-barra" style="--progresso: 80%"></div>
+                </div>
+                <p class="habilidade-descricao">Design de interfaces intuitivas</p>
               </div>
               
               <div class="habilidade-item" data-skill="react">
-                <div class="habilidade-info">
+                <div class="habilidade-header">
+                  <span class="habilidade-nome">React</span>
                   <span class="habilidade-nivel">75%</span>
-                  <div class="habilidade-barra">
-                    <div class="habilidade-progresso" style="width: 75%"></div>
-                  </div>
                 </div>
-                <p class="habilidade-descricao">Biblioteca JavaScript para construção de interfaces</p>
+                <div class="habilidade-barra-container">
+                  <div class="habilidade-barra" style="--progresso: 75%"></div>
+                </div>
+                <p class="habilidade-descricao">Componentes reutilizáveis</p>
               </div>
             </div>
           </div>
@@ -203,29 +202,40 @@
       window.open(`https://wa.me/${telefone}?text=${msgformatada}`, '_blank');
     }
 
-    // Script para a seção de habilidades
+    // Controle das Habilidades Interativas
     document.addEventListener('DOMContentLoaded', function() {
       const botoesHabilidade = document.querySelectorAll('.habilidade-botao');
-      const itensHabilidade = document.querySelectorAll('.habilidade-item');
       
       botoesHabilidade.forEach(botao => {
         botao.addEventListener('click', function() {
-          const skill = this.getAttribute('data-skill');
+          const skill = this.dataset.skill;
           
-          // Remover classe active de todos os botões e itens
-          botoesHabilidade.forEach(b => b.classList.remove('active'));
-          itensHabilidade.forEach(i => i.classList.remove('active'));
+          // Remove active de todos
+          document.querySelectorAll('.habilidade-botao, .habilidade-item')
+            .forEach(el => el.classList.remove('active'));
           
-          // Adicionar classe active ao botão clicado
+          // Adiciona active no clicado
           this.classList.add('active');
           
-          // Mostrar o item correspondente
-          document.querySelector(`.habilidade-item[data-skill="${skill}"]`).classList.add('active');
+          // Mostra o item correspondente com animação
+          const item = document.querySelector(`.habilidade-item[data-skill="${skill}"]`);
+          item.classList.add('active');
+          
+          // Efeito de pulso no botão
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1.1)';
+          }, 50);
         });
       });
+
+      // Ativar a primeira habilidade por padrão
+      if (botoesHabilidade.length > 0) {
+        botoesHabilidade[0].click();
+      }
     });
 
-    // Inicialização das partículas
+    // Partículas.js
     particlesJS("particles-js", {
       "particles": {
         "number": { "value": 80 },
@@ -259,7 +269,7 @@
       }
     });
 
-    // Ativar link do menu atual
+    // Navegação ativa
     const menuLinks = document.querySelectorAll('.menu-link');
     menuLinks.forEach(link => {
       link.addEventListener('click', function() {
