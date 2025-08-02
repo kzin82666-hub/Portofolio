@@ -244,6 +244,98 @@ body {
   transform: translateY(-3px);
 }
 
+/* ===== NOVA SEÇÃO DE HABILIDADES COM BOTÕES E BARRAS ===== */
+.habilidades-container {
+  margin-top: 30px;
+}
+
+.habilidades-botoes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.habilidade-botao {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--branco);
+  background-color: rgba(166, 77, 255, 0.2);
+  border: 2px solid var(--roxo-primario);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.habilidade-botao:hover {
+  background-color: rgba(166, 77, 255, 0.4);
+}
+
+.habilidade-botao.active {
+  border-width: 4px;
+  border-color: var(--roxo-claro);
+  background-color: rgba(166, 77, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(166, 77, 255, 0.3);
+}
+
+.habilidade-item {
+  margin-bottom: 15px;
+  display: none;
+}
+
+.habilidade-item.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.habilidade-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.habilidade-nivel {
+  font-weight: bold;
+  color: var(--roxo-claro);
+  min-width: 40px;
+}
+
+.habilidade-nome {
+  font-weight: bold;
+  color: var(--roxo-claro);
+}
+
+.habilidade-descricao {
+  color: var(--cinza-claro);
+  font-size: 14px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.habilidade-barra {
+  height: 8px;
+  background-color: rgba(166, 77, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.habilidade-progresso {
+  height: 100%;
+  background: linear-gradient(90deg, var(--roxo-primario), var(--roxo-claro));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== PROJETOS ===== */
 .projetos-grid {
   display: grid;
@@ -424,20 +516,20 @@ body {
   .menu {
     gap: 1rem;
   }
-  
+
   .menu-link {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   .cabecalho-texto h1 {
     font-size: 2.4rem;
   }
-  
+
   .cabecalho-sub-titulo {
     font-size: 1.2rem;
   }
-  
+
   .secao-titulo {
     font-size: 2.2rem;
   }
@@ -448,32 +540,41 @@ body {
     flex-wrap: wrap;
     gap: 0.8rem;
   }
-  
+
   .menu-link {
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
   }
-  
+
   .foto-perfil {
     width: 180px;
     height: 180px;
   }
-  
+
   .cabecalho-texto h1 {
     font-size: 2rem;
   }
-  
+
   .secao {
     padding: 4rem 0;
   }
-  
+
   .secao-titulo {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
-  
+
   .projetos-grid {
     grid-template-columns: 1fr;
+  }
+
+  .habilidades-botoes {
+    gap: 8px;
+  }
+
+  .habilidade-botao {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
 
@@ -481,37 +582,55 @@ body {
   .container {
     width: 95%;
   }
-  
+
   .menu {
     gap: 0.5rem;
   }
-  
+
   .menu-link {
     font-size: 0.8rem;
     padding: 0.4rem 0.7rem;
   }
-  
+
   .foto-perfil {
     width: 160px;
     height: 160px;
   }
-  
+
   .cabecalho-texto h1 {
     font-size: 1.8rem;
   }
-  
+
   .cabecalho-sub-titulo {
     font-size: 1.1rem;
   }
-  
+
   .contato-form {
     padding: 1.5rem;
   }
-  
+
   .social-link {
     width: 35px;
     height: 35px;
     font-size: 1.2rem;
+  }
+
+  .habilidades-botoes {
+    gap: 5px;
+  }
+
+  .habilidade-botao {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .habilidade-nivel,
+  .habilidade-nome {
+    font-size: 14px;
+  }
+
+  .habilidade-descricao {
+    font-size: 12px;
   }
 }
 
