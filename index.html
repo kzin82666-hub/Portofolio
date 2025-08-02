@@ -3,48 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KZ Portfólio</title>
+  <title>KZ Portfólio | Desenvolvedor Front End</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+  <!-- Fundo de partículas -->
   <div id="particles-js" class="particulas"></div>
 
-  <!-- Navegação compacta -->
+  <!-- Navegação melhorada -->
   <nav class="navegacao">
-    <ul class="menu">
-      <li><a href="#inicio" class="menu-link">Início</a></li>
-      <li><a href="#sobre" class="menu-link">Sobre</a></li>
-      <li><a href="#projetos" class="menu-link">Projetos</a></li>
-      <li><a href="#contatos" class="menu-link">Contato</a></li>
-    </ul>
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#inicio" class="menu-link ativo"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="#sobre" class="menu-link"><i class="fas fa-user"></i> Sobre</a></li>
+        <li><a href="#projetos" class="menu-link"><i class="fas fa-code"></i> Projetos</a></li>
+        <li><a href="#contatos" class="menu-link"><i class="fas fa-envelope"></i> Contato</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Seção Início com foto e texto -->
+  <!-- Seção Início aprimorada -->
   <main id="inicio" class="cabecalho">
-    <div class="foto-container">
-      <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
-      <div class="cabecalho-texto">
-        <h1>Kauã Marques</h1>
-        <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    <div class="container">
+      <div class="foto-container">
+        <img src="20250531_183428.jpg" alt="Kauã Marques" class="foto-perfil">
+        <div class="cabecalho-texto">
+          <h1>Kauã Marques</h1>
+          <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+          <div class="redes-sociais">
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- Outras seções mantidas como antes -->
-  <section id="sobre" class="secao">
-    <!-- conteúdo do sobre -->
+  <!-- Seção Sobre -->
+  <section id="sobre" class="secao sobre">
+    <div class="container">
+      <h2 class="secao-titulo">Sobre Mim</h2>
+      <div class="sobre-conteudo">
+        <div class="sobre-texto">
+          <p>Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e responsivas. Com habilidades em HTML, CSS, JavaScript e frameworks modernos, busco sempre entregar produtos de alta qualidade.</p>
+          <p>Minha abordagem combina design criativo com código limpo e eficiente, garantindo a melhor experiência do usuário.</p>
+          <div class="habilidades">
+            <span class="habilidade">HTML5</span>
+            <span class="habilidade">CSS3</span>
+            <span class="habilidade">JavaScript</span>
+            <span class="habilidade">React</span>
+            <span class="habilidade">UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="projetos" class="secao">
-    <!-- conteúdo dos projetos -->
+  <!-- Seção Projetos -->
+  <section id="projetos" class="secao projetos">
+    <div class="container">
+      <h2 class="secao-titulo">Meus Projetos</h2>
+      <div class="projetos-grid">
+        <div class="projeto-card">
+          <div class="projeto-imagem">
+            <img src="hellokit.jpg" alt="Hello Kit">
+            <div class="projeto-overlay">
+              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Hello Kit</h3>
+          <p>Plataforma de e-commerce para produtos temáticos.</p>
+        </div>
+        
+        <div class="projeto-card">
+          <div class="projeto-imagem">
+            <img src="taliberado.jpg" alt="Tá Liberado">
+            <div class="projeto-overlay">
+              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Tá Liberado</h3>
+          <p>Aplicativo de delivery de bebidas.</p>
+        </div>
+        
+        <div class="projeto-card">
+          <div class="projeto-imagem">
+            <img src="heheha.jpg" alt="Heheha">
+            <div class="projeto-overlay">
+              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Heheha</h3>
+          <p>Rede social para compartilhamento de memes.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contatos" class="secao">
-    <!-- conteúdo do contato -->
+  <!-- Seção Contato -->
+  <section id="contatos" class="secao contatos">
+    <div class="container">
+      <h2 class="secao-titulo">Entre em Contato</h2>
+      <div class="contato-conteudo">
+        <form class="contato-form">
+          <div class="form-group">
+            <input type="text" placeholder="Seu Nome" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Seu Email" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-enviar">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
   </section>
 
-  <!-- Scripts mantidos -->
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2023 Kauã Marques. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Inicialização das partículas
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#a64dff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#8000ff",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": { 
+          "enable": true, 
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { 
+            "enable": true, 
+            "mode": "repulse" 
+          }
+        }
+      }
+    });
+
+    // Ativar link do menu atual
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuLinks.forEach(l => l.classList.remove('ativo'));
+        this.classList.add('ativo');
+      });
+    });
+  </script>
 </body>
 </html>
