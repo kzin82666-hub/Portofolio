@@ -1,261 +1,124 @@
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-
-:root {
-  --bg1: #1A1029;
-  --bg2: #2B174A;
-  --accent: #A084DC;
-  --accent2: #7209B7;
-  --white: #F6F6F6;
-  --shadow: rgba(114,9,183,0.18);
 }
 
 body {
-  background: linear-gradient(120deg, var(--bg1), var(--bg2));
-  color: var(--white);
-  padding-top: 80px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Partículas no fundo */
-.particulas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 30%, #A084DC22 0 120px, transparent 300px),
-    radial-gradient(circle at 75% 80%, #7209B715 0 200px, transparent 500px),
-    radial-gradient(circle at 90% 12%, #A084DC25 0 80px, transparent 300px);
-  filter: blur(18px) brightness(1.1);
-  animation: moveParticles 12s ease-in-out infinite alternate;
-}
-
-@keyframes moveParticles {
-  0% { filter: blur(18px) brightness(1.1); }
-  100% { filter: blur(22px) brightness(1.05); }
-}
-
-/* Navegação */
 .navegacao {
-  position: fixed;
-  top: 0; left: 0; width: 100%;
-  background: rgba(26,16,41,0.97);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-  box-shadow: 0 2px 16px var(--shadow);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  text-align: center;
 }
 
 .menu {
+  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
-  list-style: none;
-  padding: 1.3rem 0;
+  gap: 30px;
 }
 
 .menu-link {
-  color: var(--accent);
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  padding: 0.3rem 0;
-  transition: color 0.2s;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.menu-link::after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  transition: width 0.3s;
+.menu-link:hover {
+  color: #00ffff;
 }
 
-.menu-link:hover, .menu-link:focus { color: var(--white); }
-.menu-link:hover::after, .menu-link:focus::after { width: 100%; }
-
-/* Cabeçalho */
 .cabecalho {
   text-align: center;
-  margin: 56px 0 24px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1;
-  position: relative;
-}
-
-.foto-wrapper {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  margin-bottom: 16px;
-}
-
-.foto-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, #7209B744 0%, transparent 70%);
-  filter: blur(12px);
-  z-index: 0;
+  padding: 60px 20px;
 }
 
 .foto-perfil {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border: 3px solid var(--accent2);
-  position: relative;
-  z-index: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 2px;
-  letter-spacing: 0.03em;
+.sobre, .projetos, .contatos {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.cabecalho-sub-titulo {
-  font-size: 1.1rem;
-  color: var(--white);
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-/* Seções */
-section {
-  margin: 36px auto 0 auto;
-  max-width: 680px;
-  background: #23194299;
-  border-radius: 14px;
-  padding: 2.2rem 1.6rem;
-  box-shadow: 0 4px 20px var(--shadow);
-  position: relative;
-  z-index: 1;
-}
-
-.sobre-titulo, .projetos-titulos, .contatos-titulos {
-  color: var(--accent2);
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 1.6rem;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
-
-.sobre-paragrafo, .paragrafo-projeto {
-  font-size: 1rem;
-  color: var(--white);
-  opacity: 0.92;
-  line-height: 1.7;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: 400;
-}
-
-/* Projetos */
 .projetos-caixa {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
   justify-content: center;
+  gap: 30px;
 }
 
 .projetos-card {
-  background: #1A1029DD;
-  border-radius: 12px;
-  box-shadow: 0 2px 18px var(--shadow);
-  padding: 1rem 1.1rem;
-  width: 100%;
-  max-width: 280px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.18s, box-shadow 0.18s;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .projetos-card:hover {
-  transform: translateY(-5px) scale(1.025);
-  box-shadow: 0 6px 28px #7209B744;
+  transform: scale(1.05);
 }
 
-.projeto-imagem {
-  width: 100%;
+.projeto-imagens {
+  max-width: 100%;
   height: auto;
-  max-height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 0 10px #a084dc33) blur(1.5px);
-  transition: filter 0.2s;
-  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
 }
 
-.projetos-card:hover .projeto-imagem {
-  filter: drop-shadow(0 0 16px #a084dc99) blur(2.5px);
-}
-
-.info-projetos {
-  color: var(--accent);
-  font-size: 1.08rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-/* Contato */
 .formulario-contato {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
-.campo-form, textarea {
-  width: 100%;
-  padding: 0.95rem 0.85rem;
-  border: none;
+.campo-form {
+  padding: 10px;
   border-radius: 8px;
-  background: #2B174A;
-  color: var(--white);
+  border: none;
   font-size: 1rem;
-  font-weight: 400;
-  box-shadow: 0 2px 6px #7209B718;
-  margin-bottom: 6px;
-  outline: none;
-  transition: box-shadow 0.2s;
-}
-
-.campo-form:focus, textarea:focus {
-  box-shadow: 0 0 0 2px var(--accent2);
 }
 
 .botao-form {
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  color: var(--white);
+  padding: 12px;
+  background-color: #00ffff;
+  color: #000;
+  font-weight: bold;
   border: none;
-  padding: 0.92rem 0;
-  border-radius: 7px;
-  font-size: 1.05rem;
-  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .botao-form:hover {
-  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  background-color: #00cccc;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .projetos-card {
+    width: 90%;
+  }
 }
