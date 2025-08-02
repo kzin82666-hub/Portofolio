@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KZ Portfólio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div id="particles-js"></div>
+  <!-- Fundo animado -->
+  <div id="particles-js" class="particulas"></div>
 
+  <!-- Navegação -->
   <nav class="navegacao">
     <ul class="menu">
       <li><a href="#sobre" class="menu-link">Sobre</a></li>
@@ -19,12 +22,14 @@
     </ul>
   </nav>
 
+  <!-- Início -->
   <main id="inicio" class="cabecalho">
     <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
     <h1>Kauã Marques</h1>
     <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
   </main>
 
+  <!-- Sobre -->
   <section id="sobre" class="sobre">
     <h2 class="sobre-titulo">Sobre mim</h2>
     <div class="sobre-caixa">
@@ -34,27 +39,29 @@
     </div>
   </section>
 
+  <!-- Projetos -->
   <section id="projetos" class="projetos">
     <h2 class="projetos-titulo">Projetos</h2>
     <div class="projetos-caixa">
       <div class="projetos-card">
-        <img src="hellokit.jpg" alt="Hello Kit" class="projeto-imagens">
+        <img src="hellokit.jpg" alt="Projeto Hello Kit" class="projeto-imagens">
         <h3 class="info-projetos">Hello Kit</h3>
-        <p class="paragrafo-projetos"> Hello Kit.</p>
+        <p class="paragrafo-projetos">Descrição do projeto Hello Kit.</p>
       </div>
       <div class="projetos-card">
-        <img src="taliberado.jpg" alt="Tá Liberado" class="projeto-imagens">
-        <h3 class="">Tá Liberado</h3>
-        <p class="paragrafo-projetos">Tá Liberado.</p>
+        <img src="taliberado.jpg" alt="Projeto Tá Liberado" class="projeto-imagens">
+        <h3 class="info-projetos">Tá Liberado</h3>
+        <p class="paragrafo-projetos">Descrição do projeto Tá Liberado.</p>
       </div>
       <div class="projetos-card">
-        <img src="heheha.jpg" alt=" Heheha" class="projeto-imagens">
+        <img src="heheha.jpg" alt="Projeto Heheha" class="projeto-imagens">
         <h3 class="info-projetos">Heheha</h3>
-        <p class="paragrafo-projetos"> Heheha.</p>
+        <p class="paragrafo-projetos">Descrição do projeto Heheha.</p>
       </div>
     </div>
   </section>
 
+  <!-- Contato -->
   <section id="contatos" class="contatos">
     <h2 class="contatos-titulo">Contatos</h2>
     <form class="formulario-contato" id="formulario" onsubmit="enviarWhatsapp(event)">
@@ -68,6 +75,7 @@
     </form>
   </section>
 
+  <!-- WhatsApp Script -->
   <script>
     function enviarWhatsapp(event) {
       event.preventDefault();
@@ -81,6 +89,7 @@
     }
   </script>
 
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
