@@ -1,34 +1,35 @@
+/* Reset e fonte moderna */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 :root {
   --bg1: #1A1029;
   --bg2: #2B174A;
   --accent: #A084DC;
   --accent2: #7209B7;
-  --font-main: 'Inter', Arial, Helvetica, sans-serif;
   --white: #F6F6F6;
   --shadow: rgba(114,9,183,0.18);
 }
 
+/* Fundo com partículas e brilho */
 body {
-  background: linear-gradient(120deg, var(--bg1) 0%, var(--bg2) 100%);
+  background: linear-gradient(120deg, var(--bg1), var(--bg2));
   min-height: 100vh;
   color: var(--white);
-  font-family: var(--font-main);
   letter-spacing: 0.04em;
   padding-top: 80px;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Efeito de fundo com gradientes e brilho */
 .particles-bg {
   position: fixed;
   inset: 0;
@@ -41,12 +42,13 @@ body {
   filter: blur(18px) brightness(1.1);
   animation: particles-move 12s ease-in-out infinite alternate;
 }
+
 @keyframes particles-move {
   0% { filter: blur(18px) brightness(1.1); }
   100% { filter: blur(22px) brightness(1.05);}
 }
 
-/* Navegação minimalista */
+/* Navegação */
 .navegacao {
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -55,6 +57,7 @@ body {
   z-index: 1000;
   box-shadow: 0 2px 16px var(--shadow);
 }
+
 .menu {
   display: flex;
   justify-content: center;
@@ -62,6 +65,7 @@ body {
   list-style: none;
   padding: 1.3rem 0;
 }
+
 .menu-link {
   color: var(--accent);
   text-decoration: none;
@@ -71,6 +75,7 @@ body {
   padding: 0.3rem 0;
   transition: color 0.2s;
 }
+
 .menu-link::after {
   content: '';
   display: block;
@@ -79,10 +84,16 @@ body {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   transition: width 0.3s;
 }
-.menu-link:hover, .menu-link:focus { color: var(--white);}
-.menu-link:hover::after, .menu-link:focus::after { width: 100%; }
 
-/* Cabeçalho minimalista */
+.menu-link:hover, .menu-link:focus {
+  color: var(--white);
+}
+
+.menu-link:hover::after, .menu-link:focus::after {
+  width: 100%;
+}
+
+/* Cabeçalho com efeito blur roxo */
 .cabecalho {
   text-align: center;
   margin: 56px 0 24px 0;
@@ -92,15 +103,35 @@ body {
   z-index: 1;
   position: relative;
 }
+
+.foto-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.foto-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7209B744 0%, transparent 70%);
+  filter: blur(12px);
+  z-index: 0;
+}
+
 .foto-perfil {
-  width: 120px; height: 120px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent2);
-  filter: drop-shadow(0 0 20px #7209B777);
-  margin-bottom: 16px;
-  background: #23194233;
+  position: relative;
+  z-index: 1;
 }
+
 h1 {
   font-size: 2.3rem;
   font-weight: 700;
@@ -108,6 +139,7 @@ h1 {
   margin-bottom: 2px;
   letter-spacing: 0.03em;
 }
+
 .cabecalho-sub-titulo {
   font-size: 1.1rem;
   color: var(--white);
@@ -126,6 +158,7 @@ section {
   position: relative;
   z-index: 1;
 }
+
 .sobre-titulo, .projetos-titulos, .contatos-titulos {
   color: var(--accent2);
   font-size: 1.6rem;
@@ -134,6 +167,7 @@ section {
   letter-spacing: 0.04em;
   text-align: center;
 }
+
 .sobre-paragrafo, .paragrafo-projeto {
   font-size: 1rem;
   color: var(--white);
@@ -144,40 +178,48 @@ section {
   font-weight: 400;
 }
 
-/* Projetos minimalista */
+/* Projetos responsivos */
 .projetos-caixa {
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
   justify-content: center;
 }
+
 .projetos-card {
   background: #1A1029DD;
   border-radius: 12px;
   box-shadow: 0 2px 18px var(--shadow);
   padding: 1rem 1.1rem;
-  width: 215px;
+  width: 100%;
+  max-width: 280px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.18s, box-shadow 0.18s;
 }
+
 .projetos-card:hover {
   transform: translateY(-5px) scale(1.025);
   box-shadow: 0 6px 28px #7209B744;
 }
+
 .projeto-imagem {
-  width: 100%; height: 120px;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
   filter: drop-shadow(0 0 10px #a084dc33) blur(1.5px);
   transition: filter 0.2s;
 }
+
 .projetos-card:hover .projeto-imagem {
   filter: drop-shadow(0 0 16px #a084dc99) blur(2.5px);
 }
+
 .info-projetos {
   color: var(--accent);
   font-size: 1.08rem;
@@ -185,12 +227,13 @@ section {
   margin-bottom: 0.3rem;
 }
 
-/* Formulário minimalista */
+/* Formulário */
 .formulario-contato {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
+
 .campo-form, textarea {
   width: 100%;
   padding: 0.95rem 0.85rem;
@@ -205,9 +248,11 @@ section {
   outline: none;
   transition: box-shadow 0.2s;
 }
+
 .campo-form:focus, textarea:focus {
   box-shadow: 0 0 0 2px var(--accent2);
 }
+
 .botao-form {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   color: var(--white);
@@ -222,14 +267,16 @@ section {
   letter-spacing: 0.04em;
   transition: box-shadow 0.2s, transform 0.14s;
 }
+
 .botao-form:active {
   box-shadow: 0 1px 5px #7209B799;
   transform: scale(0.98);
 }
 
+/* Responsividade */
 @media (max-width: 700px) {
   section { padding: 1.2rem 3vw; }
-  .projetos-caixa { flex-direction: column; gap: 18px;}
+  .projetos-caixa { flex-direction: column; gap: 18px; }
   .projetos-card { width: 98vw; max-width: 320px; }
-  .foto-perfil { width: 90px; height: 90px;}
+  .foto-wrapper { width: 100px; height: 100px; }
 }
