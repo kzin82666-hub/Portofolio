@@ -9,296 +9,227 @@ html {
   scroll-behavior: smooth;
 }
 :root {
-  --cor-fundo: #18122B;
-  --cor-gradiente: #232526;
-  --cor-azul-claro: #4f8cff;
-  --cor-azul-principal: #375a7f;
-  --cor-texto: #e9ecf2;
-  --vidro: #4f8cff;
-  --claro: #fff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  --bg1: #1A1029;
+  --bg2: #2B174A;
+  --accent: #A084DC;
+  --accent2: #7209B7;
+  --font-main: 'Inter', Arial, Helvetica, sans-serif;
+  --white: #F6F6F6;
+  --shadow: rgba(114,9,183,0.18);
 }
 
 body {
-  background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-gradiente) 100%);
-  color: var(--cor-texto);
-  padding-top: 80px;
+  background: linear-gradient(120deg, var(--bg1) 0%, var(--bg2) 100%);
   min-height: 100vh;
-  position: relative;
+  color: var(--white);
+  font-family: var(--font-main);
+  letter-spacing: 0.04em;
+  padding-top: 80px;
   overflow-x: hidden;
 }
 
-/* Efeito especial de fundo */
+/* Efeito de fundo com gradientes e brilho */
 .particles-bg {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
+  inset: 0;
   z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(circle at 20% 30%, rgba(120,0,255,0.10) 0 7vw, transparent 70vw),
-    radial-gradient(circle at 70% 80%, rgba(0,166,255,0.10) 0 8vw, transparent 70vw),
-    radial-gradient(circle at 80% 20%, rgba(255,0,180 11vw, transparent 70vw);
-  filter: blur(20px) brightness(1.1);
-  animation: particles-move 10s linear infinite alternate;
+    radial-gradient(circle at 20% 30%, #A084DC22 0 120px, transparent 300px),
+    radial-gradient(circle at 75% 80%, #7209B715 0 200px, transparent 500px),
+    radial-gradient(circle at 90% 12%, #A084DC25 0 80px, transparent 300px);
+  filter: blur(18px) brightness(1.1);
+  animation: particles-move 12s ease-in-out infinite alternate;
 }
 @keyframes particles-move {
-  0% { filter: blur(20px) brightness(1.1);}
-  100% { filter: blur(24px) brightness(1.08);}
+  0% { filter: blur(18px) brightness(1.1); }
+  100% { filter: blur(22px) brightness(1.05);}
 }
 
-/* Navegação */
+/* Navegação minimalista */
 .navegacao {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(34, 58, 94, 0.95);
+  top: 0; left: 0; width: 100%;
+  background: rgba(26,16,41,0.97);
+  backdrop-filter: blur(8px);
   z-index: 1000;
-  padding: 1.5rem 0;
+  box-shadow: 0 2px 16px var(--shadow);
 }
 .menu {
   display: flex;
   justify-content: center;
+  gap: 2.5rem;
   list-style: none;
-  gap: 3rem;
+  padding: 1.3rem 0;
 }
 .menu-link {
+  color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
   position: relative;
-  padding: 0.5rem 0;
-  color: var(--cor-azul-claro);
+  padding: 0.3rem 0;
   transition: color 0.2s;
 }
 .menu-link::after {
   content: '';
+  display: block;
   height: 2px;
   width: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(90deg, #4f8cff, #223a5e);
-  transition: width 0.5s ease;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: width 0.3s;
 }
-.menu-link:hover, .menu-link:focus {
-  color: var(--claro);
-}
-.menu-link:hover::after, .menu-link:focus::after {
-  width: 100%;
-}
+.menu-link:hover, .menu-link:focus { color: var(--white);}
+.menu-link:hover::after, .menu-link:focus::after { width: 100%; }
 
-/* Cabeçalho */
+/* Cabeçalho minimalista */
 .cabecalho {
   text-align: center;
-  margin: 40px 0 20px 0;
+  margin: 56px 0 24px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  z-index: 1;
+  position: relative;
 }
 .foto-perfil {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
+  width: 120px; height: 120px;
   border-radius: 50%;
-  border: 4px solid var(--vidro);
-  /* Blur ao redor */
-  filter: drop-shadow(0 0 24px #a084dc88) drop-shadow(0 0 32px #7209b733);
-  background: rgba(76,0,153,0.12);
-  margin-bottom: 20px;
-  animation: flutuar 5s ease-in-out infinite;
+  object-fit: cover;
+  border: 3px solid var(--accent2);
+  filter: drop-shadow(0 0 20px #7209B777);
+  margin-bottom: 16px;
+  background: #23194233;
 }
 h1 {
-  font-size: 2.2rem;
-  color: var(--cor-azul-principal);
-  font-weight: bold;
-  margin: 10px 0 8px 0;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2px;
+  letter-spacing: 0.03em;
 }
 .cabecalho-sub-titulo {
-  font-size: 1.2rem;
-  color: var(--cor-azul-claro);
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 400;
+  opacity: 0.7;
 }
 
-/* Sobre */
-.sobre {
-  background: #31235Bbb;
-  margin: 36px auto;
-  max-width: 700px;
-  border-radius: 18px;
-  padding: 28px 30px;
-  box-shadow: 0 4px 16px rgba(76,0,153,0.15);
+/* Seções */
+section {
+  margin: 36px auto 0 auto;
+  max-width: 680px;
+  background: #23194299;
+  border-radius: 14px;
+  padding: 2.2rem 1.6rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  position: relative;
+  z-index: 1;
 }
-.sobre-titulo {
-  color: var(--cor-azul-claro);
-  margin-bottom: 18px;
+.sobre-titulo, .projetos-titulos, .contatos-titulos {
+  color: var(--accent2);
   font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.04em;
   text-align: center;
 }
-.sobre-paragrafo {
-  font-size: 1.08rem;
-  color: var(--cor-texto);
+.sobre-paragrafo, .paragrafo-projeto {
+  font-size: 1rem;
+  color: var(--white);
+  opacity: 0.92;
   line-height: 1.7;
   text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
-/* Projetos */
-.projetos {
-  max-width: 950px;
-  margin: 44px auto;
-  padding: 18px 0;
-}
-.projetos-titulos {
-  color: var(--cor-azul-claro);
-  font-size: 1.5rem;
-  margin-bottom: 22px;
-  text-align: center;
-}
+/* Projetos minimalista */
 .projetos-caixa {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 22px;
   justify-content: center;
 }
 .projetos-card {
-  background: #111111ee;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(76, 0, 153, 0.35);
-  padding: 18px 22px;
-  width: 260px;
+  background: #1A1029DD;
+  border-radius: 12px;
+  box-shadow: 0 2px 18px var(--shadow);
+  padding: 1rem 1.1rem;
+  width: 215px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  backdrop-filter: blur(2px);
+  transition: transform 0.18s, box-shadow 0.18s;
 }
 .projetos-card:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 12px 32px rgba(114, 9, 183, 0.22);
+  transform: translateY(-5px) scale(1.025);
+  box-shadow: 0 6px 28px #7209B744;
 }
 .projeto-imagem {
-  width: 100%;
-  height: 180px;
+  width: 100%; height: 120px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 10px;
   margin-bottom: 10px;
-  display: block;
-  position: relative;
-  z-index: 1;
-  /* Blur ao redor da imagem */
-  filter: drop-shadow(0 0 16px #a084dc99) drop-shadow(0 0 28px #7209b755);
-  transition: filter 0.3s;
+  filter: drop-shadow(0 0 10px #a084dc33) blur(1.5px);
+  transition: filter 0.2s;
 }
 .projetos-card:hover .projeto-imagem {
-  filter: drop-shadow(0 0 32px #a084dcff) drop-shadow(0 0 40px #7209b7cc);
+  filter: drop-shadow(0 0 16px #a084dc99) blur(2.5px);
 }
 .info-projetos {
-  color: var(--cor-azul-claro);
-  font-size: 1.1rem;
-  margin: 10px 0 6px 0;
-}
-.paragrafo-projeto {
-  color: var(--cor-texto);
-  font-size: 1rem;
-  margin-top: 10px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
 
-/* Contato */
-.contatos {
-  background: #31235Bbb;
-  max-width: 470px;
-  margin: 44px auto 28px auto;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(76, 0, 153, 0.18);
-  padding: 30px 22px;
-}
-.contatos-titulos {
-  color: var(--cor-azul-claro);
-  font-size: 1.5rem;
-  margin-bottom: 22px;
-  text-align: center;
-}
+/* Formulário minimalista */
 .formulario-contato {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 .campo-form, textarea {
   width: 100%;
-  padding: 12px 10px;
+  padding: 0.95rem 0.85rem;
   border: none;
   border-radius: 8px;
-  background: #231942;
-  color: var(--cor-texto);
+  background: #2B174A;
+  color: var(--white);
   font-size: 1rem;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 8px rgba(114, 9, 183, 0.13);
+  font-weight: 400;
+  box-shadow: 0 2px 6px #7209B718;
+  margin-bottom: 6px;
   outline: none;
-  resize: none;
   transition: box-shadow 0.2s;
 }
 .campo-form:focus, textarea:focus {
-  box-shadow: 0 0 0 3px var(--cor-azul-claro);
-}
-.grupo-form {
-  margin-bottom: 1.5rem;
+  box-shadow: 0 0 0 2px var(--accent2);
 }
 .botao-form {
-  background: linear-gradient(90deg, #4f8cff, #223a5e);
-  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: var(--white);
   border: none;
-  padding: 1rem 0;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  padding: 0.92rem 0;
+  border-radius: 7px;
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
   width: 100%;
-  margin-top: 10px;
-  transition: box-shadow 0.2s, transform 0.15s;
-  box-shadow: 0 4px 16px rgba(76, 0, 153, 0.4);
+  box-shadow: 0 2px 10px #7209B733;
+  letter-spacing: 0.04em;
+  transition: box-shadow 0.2s, transform 0.14s;
 }
 .botao-form:active {
-  box-shadow: 0 2px 8px rgba(76, 0, 153, 0.8);
-  transform: translateY(2px) scale(0.97);
+  box-shadow: 0 1px 5px #7209B799;
+  transform: scale(0.98);
 }
 
-/* Animação para foto de perfil */
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0);}
-  50% { transform: translateY(-20px);}
-}
-
-/* Responsivo */
 @media (max-width: 700px) {
-  .projetos-caixa {
-    flex-direction: column;
-    align-items: center;
-  }
-  .sobre, .contatos, .projetos {
-    max-width: 95vw;
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
-  .cabecalho {
-    margin: 18px 0 10px 0;
-  }
-  .projetos-card {
-    width: 95vw;
-    max-width: 320px;
-  }
-  .foto-perfil {
-    width: 120px;
-    height: 120px;
-  }
+  section { padding: 1.2rem 3vw; }
+  .projetos-caixa { flex-direction: column; gap: 18px;}
+  .projetos-card { width: 98vw; max-width: 320px; }
+  .foto-perfil { width: 90px; height: 90px;}
 }
