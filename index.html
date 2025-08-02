@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KZ Portfólio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="particulas"></div>
+  <div id="particles-js" class="particulas"></div>
   
   <nav class="navegacao">
     <ul class="menu">
@@ -19,43 +20,51 @@
   </nav>
 
   <main id="inicio" class="cabecalho">
-    <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
-    <h1>Kauã Marques</h1>
-    <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    <div class="cabecalho-conteudo">
+      <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
+      <h1>Kauã Marques</h1>
+      <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    </div>
   </main>
 
-  <section id="sobre" class="sobre">
-    <h2>Sobre mim</h2>
+  <section id="sobre" class="sobre secao">
+    <h2 class="secao-titulo">Sobre mim</h2>
     <div class="sobre-caixa">
-      <p>
+      <p class="sobre-paragrafo">
         Sou alguém curioso e dedicado, sempre buscando aprender mais e evoluir em tudo que faço. Gosto de explorar tecnologias, organizar meus projetos de forma prática e eficiente, e não tenho medo de enfrentar novos desafios. Valorizo a criatividade, a troca de conhecimento e acredito que crescer junto com outras pessoas é essencial para alcançar resultados melhores.
       </p>
     </div>
   </section>
 
-  <section id="projetos" class="projetos">
-    <h2>Projetos</h2>
+  <section id="projetos" class="projetos secao">
+    <h2 class="secao-titulo">Projetos</h2>
     <div class="projetos-caixa">
       <div class="projetos-card">
-        <img src="hellokit.jpg" alt="Projeto Hello Kit" class="projeto-imagens">
-        <h3>Hello Kit</h3>
-        <p>Descrição do projeto Hello Kit.</p>
+        <div class="projeto-imagem-container">
+          <img src="hellokit.jpg" alt="Projeto Hello Kit" class="projeto-imagens">
+        </div>
+        <h3 class="info-projetos">Hello Kit</h3>
+        <p class="paragrafo-projetos">Descrição do projeto Hello Kit.</p>
       </div>
       <div class="projetos-card">
-        <img src="taliberado.jpg" alt="Projeto Tá Liberado" class="projeto-imagens">
-        <h3>Tá Liberado</h3>
-        <p>Descrição do projeto Tá Liberado.</p>
+        <div class="projeto-imagem-container">
+          <img src="taliberado.jpg" alt="Projeto Tá Liberado" class="projeto-imagens">
+        </div>
+        <h3 class="info-projetos">Tá Liberado</h3>
+        <p class="paragrafo-projetos">Descrição do projeto Tá Liberado.</p>
       </div>
       <div class="projetos-card">
-        <img src="heheha.jpg" alt="Projeto Heheha" class="projeto-imagens">
-        <h3>Heheha</h3>
-        <p>Descrição do projeto Heheha.</p>
+        <div class="projeto-imagem-container">
+          <img src="heheha.jpg" alt="Projeto Heheha" class="projeto-imagens">
+        </div>
+        <h3 class="info-projetos">Heheha</h3>
+        <p class="paragrafo-projetos">Descrição do projeto Heheha.</p>
       </div>
     </div>
   </section>
 
-  <section id="contatos" class="contatos">
-    <h2>Contatos</h2>
+  <section id="contatos" class="contatos secao">
+    <h2 class="secao-titulo">Contatos</h2>
     <div class="contatos-caixa">
       <form class="formulario-contato" id="formulario" onsubmit="enviarWhatsapp(event)">
         <div class="grupo-form">
@@ -69,6 +78,7 @@
     </div>
   </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     function enviarWhatsapp(event) {
       event.preventDefault();
@@ -81,43 +91,36 @@
       window.open(url, '_blank');
     }
 
-    // Efeito de partículas simplificado
-    document.addEventListener('DOMContentLoaded', function() {
-      const particulas = document.querySelector('.particulas');
-      const colors = ['#a64dff', '#8000ff', '#00ffff'];
-      
-      for (let i = 0; i < 40; i++) {
-        const particula = document.createElement('div');
-        particula.style.width = Math.random() * 8 + 2 + 'px';
-        particula.style.height = particula.style.width;
-        particula.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        particula.style.opacity = Math.random() * 0.6 + 0.1;
-        particula.style.position = 'fixed';
-        particula.style.top = Math.random() * 100 + 'vh';
-        particula.style.left = Math.random() * 100 + 'vw';
-        particula.style.borderRadius = '50%';
-        particula.style.zIndex = '-1';
-        
-        let x = Math.random() * 100;
-        let y = Math.random() * 100;
-        let xSpeed = (Math.random() - 0.5) * 0.3;
-        let ySpeed = (Math.random() - 0.5) * 0.3;
-        
-        function animate() {
-          x += xSpeed;
-          y += ySpeed;
-          
-          if (x > 100 || x < 0) xSpeed *= -1;
-          if (y > 100 || y < 0) ySpeed *= -1;
-          
-          particula.style.left = x + 'vw';
-          particula.style.top = y + 'vh';
-          
-          requestAnimationFrame(animate);
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#a64dff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 4 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#8000ff",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": { 
+          "enable": true, 
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out"
         }
-        
-        animate();
-        particulas.appendChild(particula);
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { 
+            "enable": true, 
+            "mode": "repulse" 
+          }
+        }
       }
     });
   </script>
