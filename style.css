@@ -19,15 +19,15 @@ html {
   --claro: #fff;
 }
 
-/* Corrigido o seletor para .navegacao (com . e não navegacao.) */
+/* Navegação */
 .navegacao {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(34, 58, 94, 0.9);
+  background: rgba(34, 58, 94, 0.95);
   z-index: 1000;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 }
 
 .menu {
@@ -43,8 +43,8 @@ html {
   position: relative;
   padding: 0.5rem 0;
   color: var(--cor-azul-claro);
+  transition: color 0.2s;
 }
-/* Corrigida sintaxe dos pseudoelementos e hover */
 .menu-link::after {
   content: '';
   height: 2px;
@@ -55,70 +55,165 @@ html {
   background: linear-gradient(90deg, #4f8cff, #223a5e);
   transition: width 0.5s ease;
 }
-.menu-link:hover::after {
+.menu-link:hover, .menu-link:focus {
+  color: var(--claro);
+}
+.menu-link:hover::after,
+.menu-link:focus::after {
   width: 100%;
 }
 
-.cabecalho {
-  min-height: 100vh; /* Corrigido de main-height para min-height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+body {
+  background: var(--cor-azul-escuro);
+  color: var(--cor-texto);
+  padding-top: 80px; /* espaço para navegação fixa */
 }
 
+/* Cabeçalho */
+.cabecalho {
+  text-align: center;
+  margin: 40px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .foto-perfil {
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 4px 16px rgba(34, 58, 94, 0.15);
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--vidro);
+  box-shadow: 0 8px 32px rgba(76, 0, 153, 0.3);
+  margin-bottom: 20px;
   animation: flutuar 5s ease-in-out infinite;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 2.2rem;
   color: var(--cor-azul-principal);
-  font-weight: bold; /* Corrigido font-weight */
-  margin: 20px 0;
+  font-weight: bold;
+  margin: 10px 0 8px 0;
 }
 
 .cabecalho-sub-titulo {
-  font-size: 1.5rem;
-  color: var(--claro);
+  font-size: 1.2rem;
+  color: var(--cor-azul-claro);
+  margin-bottom: 10px;
 }
 
+/* Sobre */
 .sobre {
-  padding: 2rem 0;
+  background: #31235B;
+  margin: 36px auto;
+  max-width: 700px;
+  border-radius: 18px;
+  padding: 28px 30px;
+  box-shadow: 0 4px 16px rgba(76,0,153,0.20);
 }
-
 .sobre-titulo {
-  font-size: 3rem;
-  color: var(--claro);
+  color: var(--cor-azul-claro);
+  margin-bottom: 18px;
+  font-size: 1.6rem;
   text-align: center;
-  margin-bottom: 20px;
 }
-
-.sobre-caixa {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 16px;
-  border: 1px solid var(--vidro);
-  backdrop-filter: blur(10px);
-  background: #111111;
-}
-
 .sobre-paragrafo {
+  font-size: 1.08rem;
+  color: var(--cor-texto);
+  line-height: 1.7;
   text-align: center;
-  font-size: 1-titulos {
+}
+
+/* Projetos */
+.projetos {
+  max-width: 950px;
+  margin: 44px auto;
+  padding: 18px 0;
+}
+.projetos-titulos {
+  color: var(--cor-azul-claro);
+  font-size: 1.5rem;
+  margin-bottom: 22px;
   text-align: center;
-  font-size: 2.5rem; /* Corrigido para ponto, não vírgula */
-  margin-bottom: 50px;
-  box-shadow: 0 10px 20px #22223b;
-  transform: translateY(-10px): var(--cor-azul-escuro);
-  box-shadow: 0 0 10px #375a7f;
+}
+.projetos-caixa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+.projetos-card {
+  background: #111111;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(76, 0, 153, 0.45);
+  padding: 18px 22px;
+  width: 260px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projetos-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(114, 9, 183, 0.40);
+}
+.projeto-imagem {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+.info-projetos {
+  color: var(--cor-azul-claro);
+  font-size: 1.1rem;
+  margin: 10px 0 6px 0;
+}
+.paragrafo-projeto {
+  color: var(--cor-texto);
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Contato */
+.contatos {
+  background: #31235B;
+  max-width: 470px;
+  margin: 44px auto 28px auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(76, 0, 153, 0.18);
+  padding: 30px 22px;
+}
+.contatos-titulos {
+  color: var(--cor-azul-claro);
+  font-size: 1.5rem;
+  margin-bottom: 22px;
+  text-align: center;
+}
+.formulario-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo-form, textarea {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 8px;
+  background: #231942;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(114, 9, 183, 0.13);
+  outline: none;
+  resize: none;
+  transition: box-shadow 0.2s;
+}
+.campo-form:focus, textarea:focus {
+  box-shadow: 0 0 0 3px var(--cor-azul-claro);
 }
 
 .grupo-form {
@@ -126,13 +221,65 @@ h1 {
 }
 
 .botao-form {
-  color: var(--claro);
   background: linear-gradient(90deg, #4f8cff, #223a5e);
-  padding: 1rem 2rem;
+  color: #fff;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%;
+  padding: 1rem 0;
   border-radius: 8px;
-  transition: all 0.5s ease;
-  box
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(76, 0, 153, 0.4);
+}
+.botao-form:active {
+  box-shadow: 0 2px 8px rgba(76, 0, 153, 0.8);
+  transform: translateY(2px) scale(0.97);
+}
+
+.particulas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  background: #111111;
+}
+
+/* Animação para foto de perfil */
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .projetos-caixa {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sobre, .contatos, .projetos {
+    max-width: 95vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  .cabecalho {
+    margin: 18px 0 10px 0;
+  }
+  .projetos-card {
+    width: 95vw;
+    max-width: 320px;
+  }
+  .foto-perfil {
+    width: 120px;
+    height: 120px;
+  }
+}
