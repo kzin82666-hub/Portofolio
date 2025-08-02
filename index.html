@@ -22,11 +22,15 @@
     </ul>
   </nav>
 
-  <!-- Início -->
+  <!-- Início com foto animada -->
   <main id="inicio" class="cabecalho">
-    <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
-    <h1>Kauã Marques</h1>
-    <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    <div class="foto-container">
+      <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
+    </div>
+    <div class="cabecalho-texto">
+      <h1>Kauã Marques</h1>
+      <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    </div>
   </main>
 
   <!-- Sobre -->
@@ -93,6 +97,20 @@
       const url = `https://wa.me/${telefone}?text=${msgformatada}`;
       window.open(url, '_blank');
     }
+
+    // Animação da foto
+    document.addEventListener('DOMContentLoaded', function() {
+      const foto = document.querySelector('.foto-perfil');
+      
+      // Animação de flutuação mais intensa no hover
+      foto.addEventListener('mouseenter', function() {
+        this.style.animation = 'flutuar 1.2s ease-in-out infinite';
+      });
+      
+      foto.addEventListener('mouseleave', function() {
+        this.style.animation = 'flutuar 3s ease-in-out infinite';
+      });
+    });
   </script>
 
   <!-- Particles.js -->
@@ -114,6 +132,5 @@
       }
     });
   </script>
-
 </body>
 </html>
