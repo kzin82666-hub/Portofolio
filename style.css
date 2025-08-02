@@ -1,13 +1,10 @@
-/* Reset e fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 :root {
@@ -19,18 +16,16 @@ html {
   --shadow: rgba(114,9,183,0.18);
 }
 
-/* Fundo com partículas e brilho */
 body {
   background: linear-gradient(120deg, var(--bg1), var(--bg2));
-  min-height: 100vh;
   color: var(--white);
-  letter-spacing: 0.04em;
   padding-top: 80px;
   overflow-x: hidden;
   position: relative;
 }
 
-.particles-bg {
+/* Partículas no fundo */
+.particulas {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -40,12 +35,12 @@ body {
     radial-gradient(circle at 75% 80%, #7209B715 0 200px, transparent 500px),
     radial-gradient(circle at 90% 12%, #A084DC25 0 80px, transparent 300px);
   filter: blur(18px) brightness(1.1);
-  animation: particles-move 12s ease-in-out infinite alternate;
+  animation: moveParticles 12s ease-in-out infinite alternate;
 }
 
-@keyframes particles-move {
+@keyframes moveParticles {
   0% { filter: blur(18px) brightness(1.1); }
-  100% { filter: blur(22px) brightness(1.05);}
+  100% { filter: blur(22px) brightness(1.05); }
 }
 
 /* Navegação */
@@ -85,15 +80,10 @@ body {
   transition: width 0.3s;
 }
 
-.menu-link:hover, .menu-link:focus {
-  color: var(--white);
-}
+.menu-link:hover, .menu-link:focus { color: var(--white); }
+.menu-link:hover::after, .menu-link:focus::after { width: 100%; }
 
-.menu-link:hover::after, .menu-link:focus::after {
-  width: 100%;
-}
-
-/* Cabeçalho com efeito blur roxo */
+/* Cabeçalho */
 .cabecalho {
   text-align: center;
   margin: 56px 0 24px 0;
@@ -178,7 +168,7 @@ section {
   font-weight: 400;
 }
 
-/* Projetos responsivos */
+/* Projetos */
 .projetos-caixa {
   display: flex;
   flex-wrap: wrap;
@@ -214,6 +204,7 @@ section {
   margin-bottom: 10px;
   filter: drop-shadow(0 0 10px #a084dc33) blur(1.5px);
   transition: filter 0.2s;
+  cursor: pointer;
 }
 
 .projetos-card:hover .projeto-imagem {
@@ -227,7 +218,7 @@ section {
   margin-bottom: 0.3rem;
 }
 
-/* Formulário */
+/* Contato */
 .formulario-contato {
   display: flex;
   flex-direction: column;
@@ -262,21 +253,9 @@ section {
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
-  box-shadow: 0 2px 10px #7209B733;
-  letter-spacing: 0.04em;
-  transition: box-shadow 0.2s, transform 0.14s;
+  transition: background 0.3s;
 }
 
-.botao-form:active {
-  box-shadow: 0 1px 5px #7209B799;
-  transform: scale(0.98);
-}
-
-/* Responsividade */
-@media (max-width: 700px) {
-  section { padding: 1.2rem 3vw; }
-  .projetos-caixa { flex-direction: column; gap: 18px; }
-  .projetos-card { width: 98vw; max-width: 320px; }
-  .foto-wrapper { width: 100px; height: 100px; }
+.botao-form:hover {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
 }
