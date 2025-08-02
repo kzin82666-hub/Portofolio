@@ -1,60 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio Kauã</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <title>KZ Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="particles-bg"></div>
+  <div class="particulas"></div>
 
   <nav class="navegacao">
     <ul class="menu">
       <li><a href="#sobre" class="menu-link">Sobre</a></li>
       <li><a href="#projetos" class="menu-link">Projetos</a></li>
-      <li><a href="#contato" class="menu-link">Contato</a></li>
+      <li><a href="#inicio" class="menu-link">Início</a></li>
+      <li><a href="#contatos" class="menu-link">Contato</a></li>
     </ul>
   </nav>
 
-  <header class="cabecalho">
+  <main id="inicio" class="cabecalho">
     <div class="foto-wrapper">
-      <img src="sua-foto.jpg" alt="Foto de Kauã" class="foto-perfil" />
+      <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil" />
     </div>
-    <h1>Kauã Oliveira</h1>
-    <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
-  </header>
+    <h1>Kauã Marques</h1>
+    <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+  </main>
 
-  <section id="sobre">
-    <h2 class="sobre-titulo">Sobre Mim</h2>
-    <p class="sobre-paragrafo">Sou apaixonado por tecnologia e design. Crio experiências digitais com foco em estética e funcionalidade.</p>
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre mim</h2>
+    <div class="sobre-caixa">
+      <p class="sobre-paragrafo">
+        Sou alguém curioso e dedicado, sempre buscando aprender mais e evoluir em tudo que faço. Gosto de explorar tecnologias, organizar meus projetos de forma prática e eficiente, e não tenho medo de enfrentar novos desafios. Valorizo a criatividade, a troca de conhecimento e acredito que crescer junto com outras pessoas é essencial para alcançar resultados melhores.
+      </p>
+    </div>
   </section>
 
-  <section id="projetos">
+  <section id="projetos" class="projetos">
     <h2 class="projetos-titulos">Projetos</h2>
     <div class="projetos-caixa">
       <div class="projetos-card">
-        <img src="projeto1.jpg" alt="Projeto 1" class="projeto-imagem" />
-        <p class="info-projetos">Landing Page Criativa</p>
-        <p class="paragrafo-projeto">Design responsivo com animações suaves e layout moderno.</p>
+        <img src="hellokit.jpg" alt="Projeto Hello Kit" class="projeto-imagem" />
+        <h3 class="info-projetos">Hello Kit</h3>
+        <p class="paragrafo-projeto">Descrição do projeto Hello Kit.</p>
       </div>
       <div class="projetos-card">
-        <img src="projeto2.jpg" alt="Projeto 2" class="projeto-imagem" />
-        <p class="info-projetos">Dashboard Interativo</p>
-        <p class="paragrafo-projeto">Interface limpa com gráficos dinâmicos e filtros inteligentes.</p>
+        <img src="taliberado.jpg" alt="Projeto Tá Liberado" class="projeto-imagem" />
+        <h3 class="info-projetos">Tá Liberado</h3>
+        <p class="paragrafo-projeto">Descrição do projeto Tá Liberado.</p>
+      </div>
+      <div class="projetos-card">
+        <img src="heheha.jpg" alt="Projeto Heheha" class="projeto-imagem" />
+        <h3 class="info-projetos">Heheha</h3>
+        <p class="paragrafo-projeto">Descrição do projeto Heheha.</p>
       </div>
     </div>
   </section>
 
-  <section id="contato">
-    <h2 class="contatos-titulos">Contato</h2>
-    <form class="formulario-contato">
-      <input type="text" placeholder="Seu nome" class="campo-form" />
-      <input type="email" placeholder="Seu e-mail" class="campo-form" />
-      <textarea rows="4" placeholder="Sua mensagem"></textarea>
-      <button type="submit" class="botao-form">Enviar</button>
+  <section id="contatos" class="contatos">
+    <h2 class="contatos-titulos">Contatos</h2>
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhatsapp(event)">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome" required />
+      </div>
+      <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua mensagem..." rows="6" id="mensagem" required></textarea>
+      </div>
+      <button type="submit" class="botao-form">Enviar mensagem WhatsApp!</button>
     </form>
   </section>
+
+  <script>
+    function enviarWhatsapp(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const mensagem = document.getElementById('mensagem').value;
+      const telefone = '5562992628445';
+      const texto = `Olá, me chamo ${nome}, ${mensagem}`;
+      const msgformatada = encodeURIComponent(texto);
+      const url = `https://wa.me/${telefone}?text=${msgformatada}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
