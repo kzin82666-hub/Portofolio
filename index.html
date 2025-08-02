@@ -8,8 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Fundo animado -->
   <div id="particles-js" class="particulas"></div>
-  
+
+  <!-- Navegação -->
   <nav class="navegacao">
     <ul class="menu">
       <li><a href="#sobre" class="menu-link">Sobre</a></li>
@@ -19,16 +22,16 @@
     </ul>
   </nav>
 
+  <!-- Início -->
   <main id="inicio" class="cabecalho">
-    <div class="cabecalho-conteudo">
-      <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
-      <h1>Kauã Marques</h1>
-      <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
-    </div>
+    <img src="20250531_183428.jpg" alt="Foto de Kauã Marques" class="foto-perfil">
+    <h1>Kauã Marques</h1>
+    <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
   </main>
 
-  <section id="sobre" class="sobre secao">
-    <h2 class="secao-titulo">Sobre mim</h2>
+  <!-- Sobre -->
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre mim</h2>
     <div class="sobre-caixa">
       <p class="sobre-paragrafo">
         Sou alguém curioso e dedicado, sempre buscando aprender mais e evoluir em tudo que faço. Gosto de explorar tecnologias, organizar meus projetos de forma prática e eficiente, e não tenho medo de enfrentar novos desafios. Valorizo a criatividade, a troca de conhecimento e acredito que crescer junto com outras pessoas é essencial para alcançar resultados melhores.
@@ -36,25 +39,26 @@
     </div>
   </section>
 
-  <section id="projetos" class="projetos secao">
-    <h2 class="secao-titulo">Projetos</h2>
+  <!-- Projetos -->
+  <section id="projetos" class="projetos">
+    <h2 class="projetos-titulo">Projetos</h2>
     <div class="projetos-caixa">
       <div class="projetos-card">
-        <div class="projeto-imagem-container">
+        <div class="projeto-img-container">
           <img src="hellokit.jpg" alt="Projeto Hello Kit" class="projeto-imagens">
         </div>
         <h3 class="info-projetos">Hello Kit</h3>
         <p class="paragrafo-projetos">Descrição do projeto Hello Kit.</p>
       </div>
       <div class="projetos-card">
-        <div class="projeto-imagem-container">
+        <div class="projeto-img-container">
           <img src="taliberado.jpg" alt="Projeto Tá Liberado" class="projeto-imagens">
         </div>
         <h3 class="info-projetos">Tá Liberado</h3>
         <p class="paragrafo-projetos">Descrição do projeto Tá Liberado.</p>
       </div>
       <div class="projetos-card">
-        <div class="projeto-imagem-container">
+        <div class="projeto-img-container">
           <img src="heheha.jpg" alt="Projeto Heheha" class="projeto-imagens">
         </div>
         <h3 class="info-projetos">Heheha</h3>
@@ -63,22 +67,21 @@
     </div>
   </section>
 
-  <section id="contatos" class="contatos secao">
-    <h2 class="secao-titulo">Contatos</h2>
-    <div class="contatos-caixa">
-      <form class="formulario-contato" id="formulario" onsubmit="enviarWhatsapp(event)">
-        <div class="grupo-form">
-          <input placeholder="Nome" class="campo-form" id="nome" required>
-        </div>
-        <div class="grupo-form">
-          <textarea class="campo-form" placeholder="Digite sua mensagem..." rows="6" id="mensagem" required></textarea>
-        </div>
-        <button type="submit" class="botao-form">Enviar mensagem WhatsApp!</button>
-      </form>
-    </div>
+  <!-- Contato -->
+  <section id="contatos" class="contatos">
+    <h2 class="contatos-titulo">Contatos</h2>
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhatsapp(event)">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome" required>
+      </div>
+      <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua mensagem..." rows="6" id="mensagem" required></textarea>
+      </div>
+      <button type="submit" class="botao-form">Enviar mensagem WhatsApp!</button>
+    </form>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- WhatsApp Script -->
   <script>
     function enviarWhatsapp(event) {
       event.preventDefault();
@@ -90,39 +93,27 @@
       const url = `https://wa.me/${telefone}?text=${msgformatada}`;
       window.open(url, '_blank');
     }
+  </script>
 
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#a64dff" },
+        "number": { "value": 60 },
+        "color": { "value": "#00ffff" },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 4 },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#8000ff",
-          "opacity": 0.3,
-          "width": 1
-        },
-        "move": { 
-          "enable": true, 
-          "speed": 2,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out"
-        }
+        "opacity": { "value": 0.3 },
+        "size": { "value": 3 },
+        "move": { "enable": true, "speed": 1.5 }
       },
       "interactivity": {
         "events": {
-          "onhover": { 
-            "enable": true, 
-            "mode": "repulse" 
-          }
+          "onhover": { "enable": true, "mode": "repulse" }
         }
       }
     });
   </script>
+
 </body>
 </html>
